@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Realtime Chat</title>
+
+  <!-- Adjust path if you move files -->
+  <link rel="stylesheet" href="../src/styles.css">
+</head>
+<body>
+  <div class="chat-container" role="application" aria-label="Realtime chat application">
+
+    <!-- Collapsible header for small screens -->
+    <header class="chat-header">
+      <button id="toggleUsersBtn" class="toggle-users" aria-expanded="true" aria-controls="usersPanel">
+        ☰ Users
+      </button>
+      <h1 class="app-title">Realtime Chat</h1>
+    </header>
+
+    <!-- Users panel -->
+    <aside id="usersPanel" class="users-panel" aria-label="Online users">
+      <h3>Online Users</h3>
+      <ul id="onlineUsers" role="list"></ul>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="chat-area" aria-live="polite">
+      <!-- Messages container (append messages here from JS) -->
+      <div id="messages" class="messages" role="log" aria-live="polite" aria-atomic="false"></div>
+
+      <!-- Input area -->
+      <div class="input-area" role="region" aria-label="Message input">
+        <input id="msgInput" type="text" placeholder="Type a message..." aria-label="Type a message" autocomplete="off" />
+        <button id="sendBtn" type="button" aria-label="Send message">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Socket.IO client served by your Node server (default) -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!-- Project JS (client socket helper + app logic) -->
+  <script src="../src/socket-client.js"></script>
+  <script src="../src/app.js"></script>
+</body>
+</html>
