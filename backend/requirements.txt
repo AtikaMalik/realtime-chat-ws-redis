@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+redis
+pydantic
+sqlmodel
+asyncpg
+python-dotenv
+python-socketio[asyncio_client]
+aiofiles
+celery
